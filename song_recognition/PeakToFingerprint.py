@@ -1,7 +1,7 @@
 import numpy as np
 from mygrad import sliding_window_view
 
-def peaksToFingerprints(times,freqs, fn=15, songName = "None"):
+def peaksToFingerprints(local_peaks, fn=15, songName = "None"):
     """Welcome to peaksToFingerprints.
 
     Args:
@@ -12,7 +12,7 @@ def peaksToFingerprints(times,freqs, fn=15, songName = "None"):
     """
     
     
-    #times, freqs = np.where(local_peaks.T)
+    times, freqs = np.where(local_peaks.T)
     fp = []
     f = sliding_window_view(freqs, window_shape=(len(freqs)-fn,), step = 1)
     t = sliding_window_view(freqs, window_shape=(len(times)-fn,), step = 1)
